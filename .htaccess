@@ -1,0 +1,18 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to sensitive application paths when the project root
+    # is exposed by shared hosting and requests are forwarded into /public.
+    RewriteRule ^(?:app|config|database|docs|logs|scripts|storage|tests|vendor|vendor_backup|memories)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:\.env(?:\..*)?|composer\.(?:json|lock)|database_schema\.sql|.*\.md)$ - [F,L,NC]
+
+    # Route favicon requests to the dynamic favicon handler.
+    RewriteRule ^favicon\.ico$ public/favicon.php [L,QSA,NC]
+    RewriteRule ^favicon\.png$ public/favicon.php [L,QSA,NC]
+
+    # Allow requests that already target /public to continue as normal.
+    RewriteCond %{REQUEST_URI} !^/public(?:/|$) [NC]
+    RewriteRule ^(.*)$ public/$1 [L,QSA]
+</IfModule>

@@ -1,0 +1,7 @@
+﻿Upload the contents of this package into:
+/domains/e-saraban.schoolptn.com/public_html
+
+Important:
+- Do not upload into cgi-bin
+- Keep both .htaccess files
+- The included .env already targets https://e-saraban.schoolptn.com

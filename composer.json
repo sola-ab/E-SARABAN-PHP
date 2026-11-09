@@ -1,0 +1,23 @@
+{
+  "name": "e-saraban/edms",
+  "description": "Electronic Document Management System for School",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "phpmailer/phpmailer": "^6.8",
+    "setasign/fpdi": "^2.6",
+    "setasign/fpdf": "^1.8.5",
+    "vlucas/phpdotenv": "^5.5",
+    "ramsey/uuid": "^4.7",
+    "intervention/image": "^2.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Config\\": "config/"
+    },
+    "files": [
+      "app/helpers/Helper.php"
+    ]
+  }
+}
